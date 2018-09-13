@@ -1,9 +1,9 @@
 <?xml version="1.0"?>
-<package >
+<package>
   <metadata>
     <id>MoonlayNop.Core</id>
     <version>3.9.0</version>
-    <title>MoonlayNop.WebApi.Framework</title>
+    <title>MoonlayNop.Core</title>
     <authors>Afandy Lamusu</authors>
     <owners>Moonlay</owners>
     <licenseUrl>http://LICENSE_URL_HERE_OR_DELETE_THIS_LINE</licenseUrl>

@@ -1,16 +1,16 @@
 <?xml version="1.0"?>
-<package >
+<package>
   <metadata>
-    <id>MoonlayNop.WebApi.Framework</id>
-    <version>1.0.1-beta04</version>
-    <title>MoonlayNop.WebApi.Framework</title>
+    <id>MoonlayNop.Data</id>
+    <version>3.9.0</version>
+    <title>MoonlayNop.Data</title>
     <authors>Afandy Lamusu</authors>
     <owners>Moonlay</owners>
     <licenseUrl>http://LICENSE_URL_HERE_OR_DELETE_THIS_LINE</licenseUrl>
     <projectUrl>http://PROJECT_URL_HERE_OR_DELETE_THIS_LINE</projectUrl>
     <iconUrl>http://ICON_URL_HERE_OR_DELETE_THIS_LINE</iconUrl>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
-    <description>MoonlayNop.WebApi.Framework</description>
+    <description>MoonlayNop.Data</description>
     <releaseNotes>Summary of changes made in this release of the package.</releaseNotes>
     <copyright>Copyright 2018</copyright>
     <tags>Tag1 Tag2</tags>
