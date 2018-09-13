@@ -246,7 +246,7 @@
           <AutoAssignPort>True</AutoAssignPort>
           <DevelopmentServerPort>51851</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
-          <IISUrl>https://localhost:44331/</IISUrl>
+          <IISUrl>http://localhost:51851/</IISUrl>
           <OverrideIISAppRootUrl>True</OverrideIISAppRootUrl>
           <IISAppRootUrl>https://localhost:44331/swagger</IISAppRootUrl>
           <NTLMAuthentication>False</NTLMAuthentication>

@@ -27,15 +27,15 @@ namespace Nop.WebApi
 
             EngineContext.Initialize(false);
 
-            HttpConfiguration config = GlobalConfiguration.Configuration;
-            config.DependencyResolver = new AutofacWebApiDependencyResolver(EngineContext.Current.ContainerManager.Container);
+            GlobalConfiguration.Configure(config => {
+                config.DependencyResolver = new AutofacWebApiDependencyResolver(EngineContext.Current.ContainerManager.Container);
 
-            WebApiConfig.Register(config);
+                WebApiConfig.Register(config);
 
-            app.UseAutofacWebApi(config);
-            app.UseWebApi(config);
-
-            config.EnsureInitialized();
+                app.UseAutofacMiddleware(EngineContext.Current.ContainerManager.Container);
+                app.UseAutofacWebApi(config);
+                app.UseWebApi(config);
+            });
 
             //log application start
             try

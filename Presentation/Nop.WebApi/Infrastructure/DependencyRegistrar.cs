@@ -1,4 +1,5 @@
 ﻿using Autofac;
+using Autofac.Integration.WebApi;
 using Nop.Core.Configuration;
 using Nop.Core.Data;
 using Nop.Core.Infrastructure;
@@ -29,6 +30,8 @@ namespace Nop.WebApi.Infrastructure
         /// <param name="config"></param>
         public void Register(ContainerBuilder builder, ITypeFinder typeFinder, NopConfig config)
         {
+            builder.RegisterApiControllers(typeFinder.GetAssemblies().ToArray());
+
             //data layer
             var dataSettingsManager = new DataSettingsManager();
             var dataProviderSettings = dataSettingsManager.LoadSettings();

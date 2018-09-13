@@ -21,6 +21,7 @@ namespace Nop.WebApi.Controllers
         /// 
         /// </summary>
         /// <returns></returns>
+        [Route()]
         public IEnumerable<string> Get()
         {
             return new string[] { "value1", "value2" };
@@ -32,6 +33,7 @@ namespace Nop.WebApi.Controllers
         /// </summary>
         /// <param name="id"></param>
         /// <returns></returns>
+        [Route("{id:int}")]
         public string Get(int id)
         {
             return "value";
@@ -42,6 +44,7 @@ namespace Nop.WebApi.Controllers
         /// 
         /// </summary>
         /// <param name="value"></param>
+        [Route()]
         public void Post([FromBody]string value)
         {
         }
@@ -52,6 +55,7 @@ namespace Nop.WebApi.Controllers
         /// </summary>
         /// <param name="id"></param>
         /// <param name="value"></param>
+        [Route("{id:int}")]
         public void Put(int id, [FromBody]string value)
         {
         }
@@ -61,6 +65,7 @@ namespace Nop.WebApi.Controllers
         /// 
         /// </summary>
         /// <param name="id"></param>
+        [Route("{id:int}")]
         public void Delete(int id)
         {
         }
