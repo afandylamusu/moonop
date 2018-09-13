@@ -19,7 +19,6 @@ namespace Nop.Web
             RouteConfig.RegisterRoutes(RouteTable.Routes);
             BundleConfig.RegisterBundles(BundleTable.Bundles);
 
-            //引擎上下文初始化
             EngineContext.Initialize(false);
 
 
