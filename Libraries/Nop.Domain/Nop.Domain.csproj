@@ -54,6 +54,7 @@
     <Compile Include="Configuration\ISettings.cs" />
     <Compile Include="Configuration\Setting.cs" />
     <Compile Include="DateTimeKindAttribute.cs" />
+    <Compile Include="Extensions\TypeExtensions.cs" />
     <Compile Include="Localization\ILocalizedEntity.cs" />
     <Compile Include="Localization\ILocalizedEnum.cs" />
     <Compile Include="Localization\Language.cs" />
@@ -83,6 +84,10 @@
     <Compile Include="Users\SystemUserAttributeNames.cs" />
     <Compile Include="Users\User.cs" />
     <Compile Include="Users\UserRole.cs" />
+    <Compile Include="ValueObjects\ISingleValueObject.cs" />
+    <Compile Include="ValueObjects\SingleValueObject.cs" />
+    <Compile Include="ValueObjects\SingleValueObjectConverter.cs" />
+    <Compile Include="ValueObjects\ValueObject.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />

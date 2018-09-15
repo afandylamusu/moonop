@@ -110,7 +110,7 @@ namespace Nop.Core.Infrastructure
             RegisterDependencies(config);
 
             //register mapper configurations
-            //RegisterMapperConfiguration(config);
+            RegisterMapperConfiguration(config);
 
             //startup tasks
             if (!config.IgnoreStartupTasks)
