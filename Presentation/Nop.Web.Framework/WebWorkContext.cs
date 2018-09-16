@@ -165,12 +165,12 @@ namespace Nop.Web.Framework
 
                 User user = null;
 
-                //if (_httpContext == null || _httpContext is FakeHttpContext)
-                //{
-                //    //check whether request is made by a background task
-                //    //in this case return built-in user record for background task
-                //    user = _userService.GetUserBySystemName(SystemUserNames.BackgroundTask);
-                //}
+                if (_httpContext == null || _httpContext is FakeHttpContext)
+                {
+                    //check whether request is made by a background task
+                    //in this case return built-in user record for background task
+                    user = _userService.GetUserBySystemName(SystemUserNames.BackgroundTask);
+                }
 
                 ////check whether request is made by a search engine
                 ////in this case return built-in user record for search engines 

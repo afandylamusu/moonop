@@ -1,8 +1,8 @@
 <?xml version="1.0"?>
-<package >
+<package>
   <metadata>
     <id>MoonlayNop.Web.Framework</id>
-    <version>3.9.0</version>
+    <version>3.9.0.5</version>
     <title>MoonlayNop.Web.Framework</title>
     <authors>Afandy Lamusu</authors>
     <owners>Moonlay</owners>

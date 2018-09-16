@@ -166,7 +166,7 @@ namespace Nop.WebApi.Framework
                 {
                     //check whether request is made by a background task
                     //in this case return built-in user record for background task
-                    //user = _userService.GetUserBySystemName(SystemUserNames.BackgroundTask);
+                    user = _userService.GetUserBySystemName(SystemUserNames.BackgroundTask);
                 }
 
                 ////check whether request is made by a search engine

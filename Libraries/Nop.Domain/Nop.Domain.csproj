@@ -70,6 +70,7 @@
     <Compile Include="Security\PermissionRecord.cs" />
     <Compile Include="Security\SecuritySettings.cs" />
     <Compile Include="Users\ExternalAuthenticationSettings.cs" />
+    <Compile Include="Users\SystemUserNames.cs" />
     <Compile Include="Users\UserExtensions.cs" />
     <Compile Include="Users\SystemUserRoleNames.cs" />
     <Compile Include="Users\UserLoginResults.cs" />
