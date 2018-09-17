@@ -50,8 +50,8 @@ namespace Nop.Core.Infrastructure
             //dependencies
             var typeFinder = new WebAppTypeFinder();
 
-            //不使用NopConfig来进行配置，注释
             //builder.RegisterInstance(config).As<NopConfig>().SingleInstance();
+
             builder.RegisterInstance(this).As<IEngine>().SingleInstance();
             builder.RegisterInstance(typeFinder).As<ITypeFinder>().SingleInstance();
 
@@ -64,6 +64,27 @@ namespace Nop.Core.Infrastructure
             drInstances = drInstances.AsQueryable().OrderBy(t => t.Order).ToList();
             foreach (var dependencyRegistrar in drInstances)
                 dependencyRegistrar.Register(builder, typeFinder, config);
+
+            //dependencies
+            //var typeFinder = new WebAppTypeFinder();
+            //====================================================================
+            //register mapper configurations provided by other assemblies
+            var mcTypes = typeFinder.FindClassesOfType<IMapperConfiguration>();
+            var mcInstances = new List<IMapperConfiguration>();
+            foreach (var mcType in mcTypes)
+                mcInstances.Add((IMapperConfiguration)Activator.CreateInstance(mcType));
+            //sort
+            mcInstances = mcInstances.AsQueryable().OrderBy(t => t.Order).ToList();
+            //get configurations
+            var configurationActions = new List<Action<IMapperConfigurationExpression>>();
+            foreach (var mc in mcInstances)
+                configurationActions.Add(mc.GetConfiguration());
+            //register
+            AutoMapperConfiguration.Init(configurationActions);
+
+            builder.Register(c => AutoMapperConfiguration.Mapper).SingleInstance();
+            builder.Register(c => AutoMapperConfiguration.MapperConfiguration).SingleInstance();
+            //====================================================================
 
             var container = builder.Build();
             this._containerManager = new ContainerManager(container);
@@ -110,7 +131,7 @@ namespace Nop.Core.Infrastructure
             RegisterDependencies(config);
 
             //register mapper configurations
-            RegisterMapperConfiguration(config);
+            //RegisterMapperConfiguration(config);
 
             //startup tasks
             if (!config.IgnoreStartupTasks)
