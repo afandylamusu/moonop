@@ -181,6 +181,9 @@
     <Compile Include="Helpers\DateTimeHelper.cs" />
     <Compile Include="Helpers\DateTimeSettings.cs" />
     <Compile Include="Helpers\IDateTimeHelper.cs" />
+    <Compile Include="Installation\CodeFirstInstallationService.cs" />
+    <Compile Include="Installation\IInstallationService.cs" />
+    <Compile Include="Installation\SqlFileInstallationService.cs" />
     <Compile Include="Localization\ILanguageService.cs" />
     <Compile Include="Localization\ILocalizationService.cs" />
     <Compile Include="Localization\ILocalizedEntityService.cs" />
