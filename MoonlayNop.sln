@@ -13,7 +13,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Nop.Services", "Libraries\N
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Nop.Domain", "Libraries\Nop.Domain\Nop.Domain.csproj", "{698FF728-93B9-48C9-99C0-0AA1C909F420}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Presentation", "Presentation", "{C29EB955-C0CB-4C54-BCE5-F1E9EFF46B01}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Frameworks", "Frameworks", "{C29EB955-C0CB-4C54-BCE5-F1E9EFF46B01}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Nop.Web", "Presentation\Nop.Web\Nop.Web.csproj", "{17C762DD-838B-465C-AAB2-892CACE4D0A4}"
 EndProject

@@ -69,9 +69,6 @@ namespace Nop.WebApi.Framework
             //work context
             builder.RegisterType<WebApiWorkContext>().As<IWorkContext>().InstancePerLifetimeScope();
 
-            //controllers
-            //builder.RegisterApiControllers(typeFinder.GetAssemblies().ToArray());
-
 
             //data layer
             var dataSettingsManager = new DataSettingsManager();
@@ -83,17 +80,15 @@ namespace Nop.WebApi.Framework
             {
                 var efDataProviderManager = new EfDataProviderManager(dataSettingsManager.LoadSettings());
                 var dataProvider = efDataProviderManager.LoadDataProvider();
-                dataProvider.InitConnectionFactory(); 
+                dataProvider.InitConnectionFactory();
                 builder.Register<IDbContext>(c => new NopObjectContext(dataProviderSettings.DataConnectionString)).InstancePerLifetimeScope();
             }
             else
             {
                 builder.Register<IDbContext>(c => new NopObjectContext(dataSettingsManager.LoadSettings().DataConnectionString)).InstancePerLifetimeScope();
             }
-             
-            // 注入ef到仓储
-            builder.RegisterGeneric(typeof(EfRepository<>)).As(typeof(IRepository<>)).InstancePerLifetimeScope();
 
+            builder.RegisterGeneric(typeof(EfRepository<>)).As(typeof(IRepository<>)).InstancePerLifetimeScope();
 
             //log
             builder.RegisterType<DefaultLogger>().As<ILogger>().InstancePerLifetimeScope();
@@ -110,10 +105,6 @@ namespace Nop.WebApi.Framework
             }
             builder.RegisterType<PerRequestCacheManager>().As<ICacheManager>().Named<ICacheManager>("nop_cache_per_request").InstancePerLifetimeScope();
 
-            // 注入Service及接口
-            //builder.RegisterAssemblyTypes(typeof(TestService).Assembly)
-            //        .AsImplementedInterfaces()
-            //        .InstancePerLifetimeScope(); 
             builder.RegisterType<UserActivityService>().As<IUserActivityService>().InstancePerLifetimeScope();
             builder.RegisterType<GenericAttributeService>().As<IGenericAttributeService>().InstancePerLifetimeScope();
             builder.RegisterType<LanguageService>().As<ILanguageService>().InstancePerLifetimeScope();
@@ -126,17 +117,13 @@ namespace Nop.WebApi.Framework
             builder.RegisterType<UserAttributeService>().As<IUserAttributeService>().InstancePerLifetimeScope();
             builder.RegisterType<UserService>().As<IUserService>().InstancePerLifetimeScope();
             builder.RegisterType<UserRegistrationService>().As<IUserRegistrationService>().InstancePerLifetimeScope();
-            //builder.RegisterType<UserReportService>().As<IUserReportService>().InstancePerLifetimeScope();
 
             builder.RegisterType<EncryptionService>().As<IEncryptionService>().InstancePerLifetimeScope();
             builder.RegisterType<FormsAuthenticationService>().As<IAuthenticationService>().InstancePerLifetimeScope();
             builder.RegisterType<DateTimeHelper>().As<IDateTimeHelper>().InstancePerLifetimeScope();
 
-
             builder.RegisterType<ExternalAuthorizer>().As<IExternalAuthorizer>().InstancePerLifetimeScope();
             builder.RegisterType<OpenAuthenticationService>().As<IOpenAuthenticationService>().InstancePerLifetimeScope();
-
-
 
             //use static cache (between HTTP requests)
             builder.RegisterType<SettingService>().As<ISettingService>()

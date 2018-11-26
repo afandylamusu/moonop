@@ -13,33 +13,27 @@ namespace Nop.Data.Initializers
     {
         private readonly string[] _tablesToValidate;
         private readonly string[] _customCommands;
+        private readonly DbMigrationsConfiguration _migrationsConfiguration;
 
         /// <summary>
         /// Ctor
         /// </summary>
         /// <param name="tablesToValidate">A list of existing table names to validate; null to don't validate table names</param>
         /// <param name="customCommands">A list of custom commands to execute</param>
-        public CreateTablesIfNotExist(string[] tablesToValidate, string [] customCommands)
+        public CreateTablesIfNotExist(string[] tablesToValidate, string [] customCommands, DbMigrationsConfiguration migrationsConfiguration)
         {
             this._tablesToValidate = tablesToValidate;
             this._customCommands = customCommands;
+            _migrationsConfiguration = migrationsConfiguration;
         }
+
         public void InitializeDatabase(TContext context)
         {
-            Migrate(context);
-
             if (_customCommands != null && _customCommands.Length > 0)
             {
                 foreach (var command in _customCommands)
                     context.Database.ExecuteSqlCommand(command);
             }
-        }
-
-        private void Migrate(TContext context)
-        {
-            var configuration = new Configuration();
-            var migrator = new DbMigrator(configuration);
-            migrator.Update();
         }
     }
 }

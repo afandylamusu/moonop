@@ -103,7 +103,7 @@
     <Compile Include="Html\HtmlHelper.cs" />
     <Compile Include="Infrastructure\Mapper\AutoMapperConfiguration.cs" />
     <Compile Include="Infrastructure\Mapper\IMapperConfiguration.cs" />
-    <Compile Include="Extensions.cs" />
+    <Compile Include="Extensions\ObjectExtensions.cs" />
     <Compile Include="Data\BaseDataProviderManager.cs" />
     <Compile Include="Data\IDataProvider.cs" />
     <Compile Include="Data\DataSettings.cs" />

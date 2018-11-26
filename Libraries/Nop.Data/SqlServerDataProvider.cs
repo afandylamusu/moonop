@@ -3,12 +3,14 @@ using System.Collections.Generic;
 using System.Data.Common;
 using System.Data.Entity;
 using System.Data.Entity.Infrastructure;
+using System.Data.Entity.Migrations;
 using System.Data.SqlClient;
 using System.IO;
 using System.Text;
 using Nop.Core;
 using Nop.Core.Data;
 using Nop.Data.Initializers;
+using Nop.Data.Migrations;
 
 namespace Nop.Data
 {
@@ -105,7 +107,12 @@ namespace Nop.Data
             //customCommands.AddRange(ParseCommands(CommonHelper.MapPath("~/App_Data/Install/SqlServer.Indexes.sql"), false));
             //customCommands.AddRange(ParseCommands(CommonHelper.MapPath("~/App_Data/Install/SqlServer.StoredProcedures.sql"), false));
 
-            var initializer = new CreateTablesIfNotExist<NopObjectContext>(tablesToValidate, customCommands.ToArray());
+            var dbConfig = new Configuration();
+
+            DbMigrationConfig = dbConfig;
+
+            var initializer = new CreateTablesIfNotExist<NopObjectContext>(tablesToValidate, customCommands.ToArray(), DbMigrationConfig);
+
             Database.SetInitializer(initializer);
         }
 
@@ -124,6 +131,8 @@ namespace Nop.Data
         {
             get { return true; }
         }
+
+        public DbMigrationsConfiguration DbMigrationConfig { get; private set; }
 
         /// <summary>
         /// Gets a support database parameter object (used by stored procedures)
